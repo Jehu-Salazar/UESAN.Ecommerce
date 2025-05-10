@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using UESAN.Ecommerce.CORE.Core.Interfaces;
 using UESAN.Ecommerce.CORE.Infrastructure.Data;
+using UESAN.Ecommerce.CORE.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,10 @@ var _connectionString = _configuration
                         .GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<StoreDbContext>(options =>
     options.UseSqlServer(_connectionString));
+
+
 //TODO: Add interfaces
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 
 
 builder.Services.AddControllers();

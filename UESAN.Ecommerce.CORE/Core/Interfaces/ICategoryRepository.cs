@@ -12,4 +12,7 @@ namespace UESAN.Ecommerce.CORE.Core.Interfaces
         Task<Category> GetCategoryByIdAsync(int id);
         Task<bool> UpdateCategory(Category category);
     }
+
+    //
 }
+
